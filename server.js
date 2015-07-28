@@ -1,12 +1,14 @@
+var path = require('path');
 var express = require('express');
 var app = express();
+var staticRoot = path.join(__dirname+'/public/');
 
 //Expose static content
 app.use(express.static('public'));
 
 //Routes
-app.get('/', function(req, res){
-    res.send("xx");
+app.get('/mf', function(req, res){
+    res.sendFile(staticRoot+"index.html");
 });
 
 //Server
